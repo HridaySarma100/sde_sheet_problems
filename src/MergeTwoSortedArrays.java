@@ -5,10 +5,10 @@ public class MergeTwoSortedArrays {
         int[] mergedArr = new int[arr1.length + arr2.length];
         System.arraycopy(arr1, 0, mergedArr, 0, arr1.length);
         System.arraycopy(arr2, 0, mergedArr, arr1.length, arr2.length);
-        PrintArray.printArr(mergedArr);
+        PrintingPress.printArr(mergedArr);
         merge(mergedArr);
         System.out.println();
-        PrintArray.printArr(mergedArr);
+        PrintingPress.printArr(mergedArr);
 
     }
 

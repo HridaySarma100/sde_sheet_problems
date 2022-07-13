@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 public class MinimumPlatforms {
     public static void main(String[] args) {
         int[] s = {900, 940, 950, 1100, 1500, 1800};
@@ -10,9 +8,9 @@ public class MinimumPlatforms {
     private static int minimumPlatform(int[] arr, int[] dep, int n) {
         sort(arr, 0, arr.length - 1);
         sort(dep, 0, dep.length - 1);
-        PrintArray.printArr(arr);
+        PrintingPress.printArr(arr);
         System.out.println();
-        PrintArray.printArr(dep);
+        PrintingPress.printArr(dep);
         int max = 0;
         int platformCount = 0;
         int currentOccupiedPlatform;

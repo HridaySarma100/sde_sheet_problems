@@ -7,7 +7,7 @@ public class MergeIntervals {
 
     private static int mergeIntervals(int[][] arr) {
         sort(arr);
-        PrintArray.print2DArr(arr);
+        PrintingPress.print2DArr(arr);
         return 3;
     }
 
