@@ -2,7 +2,7 @@ public class PrintArray {
     public static void printArr(int[] arr) {
         for (int i :
                 arr) {
-            System.out.print(i);
+            System.out.print(i + " , ");
         }
     }
 
