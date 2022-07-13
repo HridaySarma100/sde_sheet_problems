@@ -1,6 +1,8 @@
 import Models.LinkedListGenerator;
 import Models.ListNode;
 
+import java.util.List;
+
 
 public class RemoveNthNodeFromLL {
 
@@ -8,7 +10,25 @@ public class RemoveNthNodeFromLL {
         int[] arr = {2, 4, 1, 4, 5, 6};
         ListNode head = new ListNode(arr[0]);
         LinkedListGenerator.generate(arr, head);
-        PrintingPress.printLinkedList(remove(head,6));
+        PrintingPress.printLinkedList(optimizedRemove(head, 4));
+    }
+
+    private static ListNode optimizedRemove(ListNode head, int n) {
+        if (head == null || head.next == null) return null;
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode fastPointer = dummy;
+        ListNode slowPointer = dummy;
+        while (n--!=0){
+            fastPointer = fastPointer.next;
+        }
+        while (fastPointer.next != null){
+            fastPointer = fastPointer.next;
+            slowPointer = slowPointer.next;
+            System.out.println(slowPointer.val+" sp");
+        }
+        slowPointer.next = slowPointer.next.next;
+        return head;
     }
 
     private static ListNode remove(ListNode head, int n) {
@@ -27,20 +47,19 @@ public class RemoveNthNodeFromLL {
 
         } else {
             int pos = count - n;
-            ListNode t = head;
             count = 1;
-            while (t != null) {
+            while (head != null) {
                 if (count == pos) {
-                    if (t.next.next != null){
-                        t.next = t.next.next;
-                    }else {
-                        t.next = null;
+                    if (head.next.next != null) {
+                        head.next = head.next.next;
+                    } else {
+                        head.next = null;
                     }
 
                     System.gc();
                 }
                 count++;
-                t = t.next;
+                head = head.next;
             }
         }
         return head;
