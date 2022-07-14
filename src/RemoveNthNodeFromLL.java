@@ -7,10 +7,10 @@ import java.util.List;
 public class RemoveNthNodeFromLL {
 
     public static void main(String[] args) {
-        int[] arr = {2, 4, 1, 4, 5, 6};
+        int[] arr = {1,2};
         ListNode head = new ListNode(arr[0]);
         LinkedListGenerator.generate(arr, head);
-        PrintingPress.printLinkedList(optimizedRemove(head, 4));
+        PrintingPress.printLinkedList(optimizedRemove(head, 2));
     }
 
     private static ListNode optimizedRemove(ListNode head, int n) {
@@ -25,10 +25,10 @@ public class RemoveNthNodeFromLL {
         while (fastPointer.next != null){
             fastPointer = fastPointer.next;
             slowPointer = slowPointer.next;
-            System.out.println(slowPointer.val+" sp");
         }
         slowPointer.next = slowPointer.next.next;
-        return head;
+                
+        return dummy.next;
     }
 
     private static ListNode remove(ListNode head, int n) {
